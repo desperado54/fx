@@ -9,8 +9,8 @@ import fx.statistic.model.Rate;
 
 public class H1Loader extends BaseLoader{
     
-    public H1Loader(String regex, String table) {
-        super(regex, table);
+    public H1Loader(String regex, String cp) {
+        super(regex, cp + "_h1");
         // TODO Auto-generated constructor stub
     }
 
