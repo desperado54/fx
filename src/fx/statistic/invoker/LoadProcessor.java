@@ -1,11 +1,6 @@
 package fx.statistic.invoker;
 
-import java.io.Console;
-
-import fx.statistic.indicators.SMAIndicator;
 import fx.statistic.loaders.D1Loader;
-import fx.statistic.loaders.H1Loader;
-import fx.statistic.loaders.M1Loader;
 
 public class LoadProcessor {
 

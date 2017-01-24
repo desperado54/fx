@@ -14,6 +14,10 @@ import fx.statistic.model.Rate;
 public abstract class BaseIndicator implements IIndicator {
         
     protected String table;
+    public static String DB_DRIVER = "org.gjt.mm.mysql.Driver";
+    public static String MY_URL = "jdbc:mysql://localhost/fx";
+    public static String USER = "root";
+    public static String PASSWORD = "emcom123";
     
     public BaseIndicator(String cp, String period)
     {
@@ -23,11 +27,9 @@ public abstract class BaseIndicator implements IIndicator {
     protected List<Rate> Load() throws Exception {
         List<Rate> list = new ArrayList<Rate>();
         
-        String myDriver = "org.gjt.mm.mysql.Driver";
-        String myUrl = "jdbc:mysql://localhost/fx";
-        Class.forName(myDriver);
+        Class.forName(DB_DRIVER);
         Connection conn = DriverManager
-                .getConnection(myUrl, "root", "emcom123");
+                .getConnection(MY_URL, USER, PASSWORD);
 
         String query = String.format("SELECT * FROM %s", table);
 
@@ -54,11 +56,9 @@ public abstract class BaseIndicator implements IIndicator {
         if(keys.size() != values.size())
             throw new IndexOutOfBoundsException("key size doesn't equal to value size");
         
-        String myDriver = "org.gjt.mm.mysql.Driver";
-        String myUrl = "jdbc:mysql://localhost/fx";
-        Class.forName(myDriver);
+        Class.forName(DB_DRIVER);
         Connection conn = DriverManager
-                .getConnection(myUrl, "root", "emcom123");
+                .getConnection(MY_URL, USER, PASSWORD);
 
         String query = " update " + table + " set ";
         for(int i = 0; i < fields.length; i++)
